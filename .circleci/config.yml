@@ -1,0 +1,14 @@
+version: 2.1
+
+jobs:
+  hello:
+    docker:
+      - image: cimg/base:current
+    steps:
+      - checkout
+      - run: echo "Triggered by $CIRCLE_SHA1 on $CIRCLE_BRANCH"
+
+workflows:
+  main:
+    jobs:
+      - hello
